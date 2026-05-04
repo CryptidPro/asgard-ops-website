@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pro Plan — Asgard-Ops AI</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="logo">⚡ Asgard-Ops <span>AI</span></a>
+    </div>
+  </nav>
+
+  <div class="form-page">
+    <div class="form-container">
+      <div class="form-header">
+        <div class="plan-tag">🔥 Pro Plan — $397/mo + $397 setup</div>
+        <h1>AI Receptionist Setup</h1>
+        <p>You're getting chat + phone. Fill this out completely — the more we know, the better your AI receptionist will handle calls and conversations on your behalf.</p>
+      </div>
+
+      <form class="intake-form" id="proForm" action="https://formspree.io/f/xnjwpykr" method="POST">
+        <div class="form-section-title">Business Information</div>
+
+        <div class="form-group">
+          <label>Business Name *</label>
+          <input type="text" name="business_name" required />
+        </div>
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" name="contact_name" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label>Business Website</label>
+          <input type="url" name="website" placeholder="https://" />
+        </div>
+        <div class="form-group">
+          <label>Business Address / City *</label>
+          <input type="text" name="address" required />
+        </div>
+        <div class="form-group">
+          <label>Industry / Type of Business *</label>
+          <select name="industry" required>
+            <option value="">Select...</option>
+            <option>Auto Repair / Automotive</option>
+            <option>Restaurant / Food & Beverage</option>
+            <option>Medical / Dental / Healthcare</option>
+            <option>Legal / Law Firm</option>
+            <option>Real Estate</option>
+            <option>Beauty / Salon / Spa</option>
+            <option>Home Services / Contractor</option>
+            <option>Retail</option>
+            <option>Fitness / Gym / Wellness</option>
+            <option>Pet Services</option>
+            <option>Financial Services</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-section-title">About Your Business</div>
+
+        <div class="form-group">
+          <label>What services or products do you offer? *</label>
+          <textarea name="services" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Business Hours *</label>
+          <textarea name="hours" placeholder="Include after-hours — this is when your AI phone agent takes over" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Most common customer questions *</label>
+          <textarea name="faqs" required></textarea>
+        </div>
+
+        <div class="form-section-title">Phone Agent Setup</div>
+
+        <div class="form-group">
+          <label>Current business phone number *</label>
+          <input type="tel" name="biz_phone" placeholder="The number you want the AI to answer" required />
+          <p class="form-note">We'll set up call forwarding to your AI agent.</p>
+        </div>
+        <div class="form-group">
+          <label>What should the AI say when it answers? *</label>
+          <textarea name="greeting" placeholder='e.g. "Thank you for calling Ventura Auto Repair! I\'m your AI assistant. How can I help you today?"' required></textarea>
+        </div>
+        <div class="form-group">
+          <label>What can the AI book over the phone? *</label>
+          <textarea name="bookable" placeholder="e.g. Oil change appointments, free estimates, consultations, table reservations..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>What should happen with missed calls / after-hours calls? *</label>
+          <textarea name="after_hours" placeholder="e.g. Take a message and send SMS follow-up, book next available appointment, offer callback..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>SMS follow-up message for missed leads</label>
+          <textarea name="sms_template" placeholder='e.g. "Hi [Name], thanks for calling Ventura Auto Repair! We missed you — reply here or call us back at [number] to book your appointment."'></textarea>
+        </div>
+
+        <div class="form-section-title">Lead Capture</div>
+
+        <div class="form-group">
+          <label>What info to collect from each lead? *</label>
+          <textarea name="lead_fields" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Lead notification email *</label>
+          <input type="email" name="lead_email" required />
+        </div>
+
+        <div class="form-section-title">Final Details</div>
+
+        <div class="form-group">
+          <label>Tone / personality for your AI agent *</label>
+          <select name="tone" required>
+            <option value="">Select...</option>
+            <option>Friendly and casual</option>
+            <option>Professional and formal</option>
+            <option>Warm and helpful</option>
+            <option>Concise and efficient</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Anything else we should know?</label>
+          <textarea name="other"></textarea>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <select name="referral">
+            <option value="">Select...</option>
+            <option>Google Search</option>
+            <option>Social Media</option>
+            <option>Referral</option>
+            <option>Cold Email / Outreach</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit — Let's Get Started 🚀</button>
+        <p class="form-disclaimer">We'll reach out within 24 hours to confirm setup and payment. No charge until you approve.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asgard-Ops AI | Ventura County AI Services</title>
+  <meta name="description" content="AI chatbots, phone receptionists, and website builds for local Ventura County businesses. No missed calls. No missed leads. Starting at $197/mo." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --card: #1a1a26;
+      --border: #2a2a3d;
+      --accent: #7c6dfa;
+      --accent2: #a78bfa;
+      --gold: #f0b429;
+      --text: #e2e2f0;
+      --muted: #888899;
+      --red: #ef4444;
+      --green: #22c55e;
+    }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.6; }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: rgba(10,10,15,0.95); backdrop-filter: blur(8px); z-index: 100; }
+    .logo { font-size: 1.3rem; font-weight: 700; color: var(--accent2); letter-spacing: 1px; }
+    .logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav ul a { color: var(--muted); font-size: 0.95rem; transition: color .2s; }
+    nav ul a:hover { color: var(--text); text-decoration: none; }
+    .nav-cta { background: var(--accent); color: #fff !important; padding: .45rem 1.1rem; border-radius: 6px; font-weight: 600; }
+    .nav-cta:hover { background: var(--accent2); text-decoration: none !important; }
+
+    /* HERO */
+    .hero { text-align: center; padding: 5rem 2rem 4rem; max-width: 860px; margin: 0 auto; }
+    .hero-badge { display: inline-block; background: rgba(124,109,250,0.15); color: var(--accent2); border: 1px solid rgba(124,109,250,0.3); padding: .3rem .9rem; border-radius: 99px; font-size: .85rem; margin-bottom: 1.5rem; letter-spacing: .5px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+    .hero h1 em { font-style: normal; color: var(--accent2); }
+    .hero p { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 2.2rem; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: #fff; padding: .8rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; transition: background .2s, transform .1s; }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); text-decoration: none; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); padding: .8rem 2rem; border-radius: 8px; font-weight: 600; font-size: 1rem; transition: border-color .2s; }
+    .btn-outline:hover { border-color: var(--accent2); text-decoration: none; }
+
+    /* PAIN POINTS */
+    .pain { background: var(--bg2); padding: 4rem 2rem; text-align: center; }
+    .pain h2 { font-size: 1.7rem; margin-bottom: .5rem; }
+    .pain p { color: var(--muted); margin-bottom: 2.5rem; }
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; max-width: 900px; margin: 0 auto; }
+    .pain-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.4rem; text-align: left; }
+    .pain-card .icon { font-size: 1.8rem; margin-bottom: .6rem; }
+    .pain-card h3 { font-size: 1rem; margin-bottom: .3rem; color: var(--red); }
+    .pain-card p { font-size: .9rem; color: var(--muted); }
+
+    /* PACKAGES */
+    .packages { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label { text-align: center; margin-bottom: .5rem; }
+    .section-label span { background: rgba(124,109,250,0.15); color: var(--accent2); padding: .25rem .8rem; border-radius: 99px; font-size: .8rem; letter-spacing: 1px; text-transform: uppercase; }
+    .section-title { text-align: center; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; margin-bottom: .6rem; }
+    .section-sub { text-align: center; color: var(--muted); margin-bottom: 3rem; }
+    .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+    .pkg-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; position: relative; transition: border-color .2s, transform .2s; }
+    .pkg-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+    .pkg-card.featured { border-color: var(--accent); }
+    .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: .75rem; padding: .2rem .9rem; border-radius: 99px; font-weight: 700; white-space: nowrap; }
+    .pkg-name { font-size: .8rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: .4rem; }
+    .pkg-price { font-size: 2.4rem; font-weight: 800; margin-bottom: .2rem; }
+    .pkg-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .pkg-setup { font-size: .85rem; color: var(--muted); margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border); }
+    .pkg-features { list-style: none; margin-bottom: 1.8rem; }
+    .pkg-features li { font-size: .9rem; color: var(--muted); padding: .35rem 0; display: flex; gap: .6rem; align-items: flex-start; }
+    .pkg-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .pkg-cta { display: block; text-align: center; background: var(--accent); color: #fff; padding: .7rem 1rem; border-radius: 8px; font-weight: 700; transition: background .2s; }
+    .pkg-cta:hover { background: var(--accent2); text-decoration: none; }
+
+    /* HOW IT WORKS */
+    .how { background: var(--bg2); padding: 5rem 2rem; }
+    .how-inner { max-width: 860px; margin: 0 auto; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .step { text-align: center; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: rgba(124,109,250,0.2); border: 2px solid var(--accent); color: var(--accent2); font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+    .step h3 { font-size: 1rem; margin-bottom: .4rem; }
+    .step p { font-size: .88rem; color: var(--muted); }
+
+    /* NO WEBSITE BANNER */
+    .no-website { background: linear-gradient(135deg, rgba(124,109,250,0.15), rgba(167,139,250,0.08)); border: 1px solid rgba(124,109,250,0.3); border-radius: 14px; padding: 2.5rem 2rem; max-width: 800px; margin: 4rem auto; text-align: center; }
+    .no-website h2 { font-size: 1.5rem; margin-bottom: .7rem; }
+    .no-website p { color: var(--muted); margin-bottom: 1.5rem; }
+    .no-website .price-tag { font-size: 1.1rem; font-weight: 700; color: var(--gold); margin-bottom: 1.5rem; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--muted); font-size: .88rem; }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ASGARD<span>-OPS</span> AI</div>
+  <ul>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="mailto:contact@asgard-ops.com">Contact</a></li>
+    <li><a href="#packages" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">🤖 AI Services for Ventura County Businesses</div>
+  <h1>Never Miss a Call,<br/>Lead, or <em>Appointment</em> Again</h1>
+  <p>We put AI to work for your local business — answering calls, booking appointments, and converting website visitors 24/7. No tech skills needed. We handle everything.</p>
+  <div class="hero-btns">
+    <a href="#packages" class="btn-primary">See Packages & Pricing</a>
+    <a href="mailto:contact@asgard-ops.com" class="btn-outline">Book a Free Demo</a>
+  </div>
+</section>
+
+<section class="pain">
+  <h2>Sound Familiar?</h2>
+  <p>These are the problems we solve for local businesses every day.</p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="icon">📵</div>
+      <h3>Missed calls = missed money</h3>
+      <p>62% of callers won't leave a voicemail. If you miss it, they call your competitor.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">🌙</div>
+      <h3>Inquiries at 10pm</h3>
+      <p>Customers don't keep business hours. Your AI assistant does — around the clock.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">📅</div>
+      <h3>Appointment no-shows</h3>
+      <p>Automated SMS reminders and confirmations cut no-shows dramatically.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">💻</div>
+      <h3>No website or chatbot</h3>
+      <p>If people can't find you or ask questions online, they move on. Fast.</p>
+    </div>
+  </div>
+</section>
+
+<section class="packages" id="packages">
+  <div class="section-label"><span>Pricing</span></div>
+  <h2 class="section-title">Simple, Transparent Packages</h2>
+  <p class="section-sub">All plans include setup support, training, and local Ventura County service.</p>
+  <div class="pkg-grid">
+
+    <div class="pkg-card">
+      <div class="pkg-name">Starter</div>
+      <div class="pkg-price">$197<span>/mo</span></div>
+      <div class="pkg-setup">+ $297 one-time setup</div>
+      <ul class="pkg-features">
+        <li>AI website chatbot (answers FAQs, captures leads)</li>
+        <li>Appointment booking integration</li>
+        <li>500,000 character knowledge base</li>
+        <li>Website embed (we install it for you)</li>
+        <li>Monthly performance report</li>
+      </ul>
+      <a href="forms/starter.html" class="pkg-cta">Get Started →</a>
+    </div>
+
+    <div class="pkg-card featured">
+      <div class="featured-badge">⭐ Most Popular</div>
+      <div class="pkg-name">Pro</div>
+      <div class="pkg-price">$397<span>/mo</span></div>
+      <div class="pkg-setup">+ $397 one-time setup</div>
+      <ul class="pkg-features">
+        <li>Everything in Starter</li>
+        <li>AI phone receptionist (answers & routes calls)</li>
+        <li>SMS follow-up for missed calls & leads</li>
+        <li>Custom voice & personality</li>
+        <li>Priority support</li>
+      </ul>
+      <a href="forms/pro.html" class="pkg-cta">Get Started →</a>
+    </div>
+
+    <div class="pkg-card">
+      <div class="pkg-name">Command</div>
+      <div class="pkg-price">$597<span>/mo</span></div>
+      <div class="pkg-setup">+ $597 one-time setup</div>
+      <ul class="pkg-features">
+        <li>Everything in Pro</li>
+        <li>Facebook & Instagram DM automation</li>
+        <li>CRM — track every lead & customer</li>
+        <li>Outbound appointment reminders</li>
+        <li>Lead scoring & follow-up sequences</li>
+      </ul>
+      <a href="forms/command.html" class="pkg-cta">Get Started →</a>
+    </div>
+
+  </div>
+</section>
+
+<section style="padding: 0 2rem;">
+  <div class="no-website">
+    <h2>🏗️ Don't Have a Website Yet?</h2>
+    <p>No problem. We build professional, mobile-friendly websites for local businesses — then install your AI chatbot at the same time. One call, one price, done.</p>
+    <div class="price-tag">Website Build: $500–$800 one-time &nbsp;+&nbsp; Starter AI: $197/mo</div>
+    <a href="forms/starter.html" class="btn-primary" style="display:inline-block;">Build My Website + AI →</a>
+  </div>
+</section>
+
+<section class="how" id="how-it-works">
+  <div class="how-inner">
+    <div class="section-label" style="text-align:center;"><span>Process</span></div>
+    <h2 class="section-title">Up and Running in 48 Hours</h2>
+    <p class="section-sub">We do the technical work. You run your business.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Fill Out the Form</h3>
+        <p>Tell us about your business — services, hours, FAQs, booking link. Takes 10 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>We Build Your AI</h3>
+        <p>We configure and train your AI agent on your specific business. You approve it.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>We Deploy It</h3>
+        <p>We install the chatbot on your site (or build the site). Phone and SMS connected.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>You Get Leads</h3>
+        <p>Your AI starts answering, booking, and following up — 24/7, automatically.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Asgard-Ops AI &nbsp;·&nbsp; Serving Ventura County, CA &nbsp;·&nbsp; <a href="mailto:contact@asgard-ops.com">contact@asgard-ops.com</a></p>
+</footer>
+
+</body>
+</html>

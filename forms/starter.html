@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starter Plan — Asgard-Ops AI</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="logo">⚡ Asgard-Ops <span>AI</span></a>
+    </div>
+  </nav>
+
+  <div class="form-page">
+    <div class="form-container">
+      <div class="form-header">
+        <div class="plan-tag">⭐ Starter Plan — $197/mo + $297 setup</div>
+        <h1>Let's Build Your AI Agent</h1>
+        <p>Fill out the form below so we can build a custom AI chat agent for your website. The more detail you give us, the better your agent will be. We'll have you live in 48 hours.</p>
+      </div>
+
+      <form class="intake-form" id="starterForm" action="https://formspree.io/f/xbdwgeew" method="POST">
+        <div class="form-section-title">Business Information</div>
+
+        <div class="form-group">
+          <label>Business Name *</label>
+          <input type="text" name="business_name" placeholder="e.g. Ventura Auto Repair" required />
+        </div>
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" name="contact_name" placeholder="First and last name" required />
+        </div>
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" name="email" placeholder="you@yourbusiness.com" required />
+        </div>
+        <div class="form-group">
+          <label>Phone Number *</label>
+          <input type="tel" name="phone" placeholder="(805) 555-0100" required />
+        </div>
+        <div class="form-group">
+          <label>Business Website</label>
+          <input type="url" name="website" placeholder="https://yourbusiness.com" />
+          <p class="form-note">If you don't have one yet, leave blank.</p>
+        </div>
+        <div class="form-group">
+          <label>Business Address / City *</label>
+          <input type="text" name="address" placeholder="e.g. 123 Main St, Oxnard, CA" required />
+        </div>
+        <div class="form-group">
+          <label>Industry / Type of Business *</label>
+          <select name="industry" required>
+            <option value="">Select your industry...</option>
+            <option>Auto Repair / Automotive</option>
+            <option>Restaurant / Food & Beverage</option>
+            <option>Medical / Dental / Healthcare</option>
+            <option>Legal / Law Firm</option>
+            <option>Real Estate</option>
+            <option>Beauty / Salon / Spa</option>
+            <option>Home Services / Contractor</option>
+            <option>Retail</option>
+            <option>Fitness / Gym / Wellness</option>
+            <option>Pet Services</option>
+            <option>Financial Services</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-section-title">About Your Business</div>
+
+        <div class="form-group">
+          <label>What services or products do you offer? *</label>
+          <textarea name="services" placeholder="List your main services. e.g. Oil changes, brake repair, tire rotation, engine diagnostics..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Business Hours *</label>
+          <textarea name="hours" placeholder="e.g. Mon-Fri 8am-6pm, Sat 9am-3pm, Closed Sunday" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>What are your most common customer questions?</label>
+          <textarea name="faqs" placeholder="e.g. How much does an oil change cost? Do you do free estimates? How long does X take?"></textarea>
+          <p class="form-note">The more you list, the smarter your AI agent will be.</p>
+        </div>
+        <div class="form-group">
+          <label>What do you want the AI agent to do when someone visits your website? *</label>
+          <textarea name="agent_goal" placeholder="e.g. Answer questions, capture their name/email/phone, book an appointment, tell them about our services..." required></textarea>
+        </div>
+
+        <div class="form-section-title">Lead Capture</div>
+
+        <div class="form-group">
+          <label>What info do you want collected from each lead? *</label>
+          <textarea name="lead_fields" placeholder="e.g. Name, phone number, email, what service they need, preferred appointment time..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Where should leads be sent? *</label>
+          <input type="email" name="lead_email" placeholder="Email to receive lead notifications" required />
+        </div>
+
+        <div class="form-section-title">Final Details</div>
+
+        <div class="form-group">
+          <label>Anything else we should know about your business?</label>
+          <textarea name="other" placeholder="Anything unique about your business, special offers, tone you want the AI to use (friendly, professional, casual), etc."></textarea>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <select name="referral">
+            <option value="">Select...</option>
+            <option>Google Search</option>
+            <option>Social Media</option>
+            <option>Referral / Word of Mouth</option>
+            <option>Cold Email / Outreach</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit — Let's Get Started 🚀</button>
+        <p class="form-disclaimer">We'll reach out within 24 hours to confirm your setup and payment details. No charge until you approve the setup.</p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
