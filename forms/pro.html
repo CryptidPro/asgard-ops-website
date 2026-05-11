@@ -6,6 +6,12 @@
   <title>Pro Plan — Asgard-Ops AI</title>
   <link rel="stylesheet" href="../css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    .form-status { display:none; padding:1rem 1.5rem; border-radius:10px; margin-bottom:1.5rem; font-weight:600; }
+    .form-status.error { display:block; background:rgba(239,68,68,0.12); border:1px solid #ef4444; color:#ef4444; }
+    .form-status.success { display:block; background:rgba(34,197,94,0.12); border:1px solid #22c55e; color:#22c55e; }
+    .btn-submit:disabled { opacity:0.6; cursor:not-allowed; }
+  </style>
 </head>
 <body>
   <nav class="nav">
@@ -22,9 +28,9 @@
         <p>You're getting chat + phone. Fill this out completely — the more we know, the better your AI receptionist will handle calls and conversations on your behalf.</p>
       </div>
 
-      <form class="intake-form" id="proForm" action="https://formspree.io/f/xnjwpykr" method="POST">
-        <input type="hidden" name="_next" value="https://app.asgard-ops.com/en/billing/stripe/subscription/checkout/session/?purchase_type=package&plan_key=pro&stripe_price_id=price_1TSQxCRLUIekBMieCFZnz4Eg&billing_cycle=month" />
-        <input type="hidden" name="_error" value="https://ai.asgard-ops.com/forms/error.html" />
+      <div class="form-status" id="formStatus"></div>
+
+      <form class="intake-form" id="proForm">
         <input type="hidden" name="package" value="Pro — $397/mo + $397 setup" />
         <div class="form-section-title">Business Information</div>
 
@@ -149,12 +155,48 @@
           </select>
         </div>
 
-        <button type="submit" class="btn-submit">Submit & Proceed to Payment 🚀</button>
+        <button type="submit" class="btn-submit" id="submitBtn">Submit & Proceed to Payment 🚀</button>
         <p class="form-disclaimer">After submitting, you'll be taken to our secure payment page to complete your Pro plan setup ($397 one-time + $397/mo). We'll start your build within 24 hours of payment.</p>
       </form>
     </div>
   </div>
 
-  <script src="../js/main.js"></script>
+  <script>
+    const CHECKOUT = "https://app.asgard-ops.com/en/billing/stripe/subscription/checkout/session/?purchase_type=package&plan_key=pro&stripe_price_id=price_1TSQxCRLUIekBMieCFZnz4Eg&billing_cycle=month";
+    const FORMSPREE = "https://formspree.io/f/xnjwpykr";
+
+    document.getElementById('proForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      const status = document.getElementById('formStatus');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      status.className = 'form-status';
+      status.textContent = '';
+
+      try {
+        const data = new FormData(this);
+        const response = await fetch(FORMSPREE, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          status.className = 'form-status success';
+          status.textContent = '✅ Got it! Redirecting you to payment now...';
+          setTimeout(() => { window.location.href = CHECKOUT; }, 1500);
+        } else {
+          const json = await response.json().catch(() => ({}));
+          const msg = json.errors ? json.errors.map(e => e.message).join(', ') : 'Submission failed.';
+          throw new Error(msg);
+        }
+      } catch(err) {
+        status.className = 'form-status error';
+        status.textContent = '⚠️ ' + (err.message || 'Something went wrong. Please call or text us at (805) 669-8549.');
+        btn.disabled = false;
+        btn.textContent = 'Submit & Proceed to Payment 🚀';
+      }
+    });
+  </script>
 </body>
 </html>
