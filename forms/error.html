@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submission Error — Asgard-Ops AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #12121a;
+      --card: #1a1a26;
+      --border: #2a2a3d;
+      --accent: #7c6dfa;
+      --accent2: #a78bfa;
+      --gold: #f0b429;
+      --text: #e2e2f0;
+      --muted: #888899;
+      --red: #ef4444;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.95);
+    }
+    .logo { font-size: 1.3rem; font-weight: 700; color: var(--accent2); letter-spacing: 1px; text-decoration: none; }
+    .logo span { color: var(--gold); }
+
+    .error-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+    }
+    .error-container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--red);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+    }
+    .error-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .error-container h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .error-container p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .contact-btn {
+      display: block;
+      padding: 0.9rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .contact-btn:hover { opacity: 0.88; transform: translateY(-1px); text-decoration: none; }
+    .btn-email {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-call {
+      background: var(--card);
+      color: var(--accent2);
+      border: 1px solid var(--accent);
+    }
+    .back-link {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent2); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="logo">⚡ Asgard-Ops <span>AI</span></a>
+  </nav>
+
+  <div class="error-page">
+    <div class="error-container">
+      <div class="error-icon">⚠️</div>
+      <h1>Something went wrong</h1>
+      <p>
+        Your form didn't go through — but don't worry, we've got you covered.
+        Reach out directly and we'll get you set up right away.
+      </p>
+
+      <div class="contact-options">
+        <a class="contact-btn btn-email" href="mailto:contact@asgard-ops.com?subject=I%20want%20to%20get%20started%20with%20Asgard-Ops%20AI">
+          📧 Email Us — contact@asgard-ops.com
+        </a>
+        <a class="contact-btn btn-call" href="tel:+1-805-000-0000">
+          📞 Call or Text Us
+        </a>
+      </div>
+
+      <a class="back-link" href="javascript:history.back()">← Go back and try again</a>
+    </div>
+  </div>
+
+</body>
+</html>
