@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Started — Asgard-Ops AI</title>
+  <meta name="description" content="AI chat assistants for local businesses. 24/7 lead capture, auto-booking, done for you in 48 hours."/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #07071a;
+      --card: #111128;
+      --border: #1e1e3a;
+      --accent: #4a9eff;
+      --purple: #8b5cff;
+      --text: #e2e8f0;
+      --muted: #7a8aaa;
+      --green: #22c55e;
+      --red: #ef4444;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── URGENCY BANNER ── */
+    .banner {
+      background: linear-gradient(90deg, #7c1d1d, #991b1b);
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #fecaca;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .banner span { color: #fff; }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 60px 24px 40px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .logo-line {
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      letter-spacing: 6px;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 58px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 0%, #a0c8ff 60%, #8b5cff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .hero p strong { color: var(--text); }
+
+    /* ── DEMO SECTION ── */
+    .demo-section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      max-width: 760px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .demo-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+    .demo-section p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+    .demo-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .demo-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* ── PROOF STRIP ── */
+    .proof {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding: 0 24px 40px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .proof-item { text-align: center; }
+    .proof-item .num {
+      font-size: 36px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .proof-item .lbl {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── PACKAGES ── */
+    .packages {
+      max-width: 900px;
+      margin: 0 auto 48px;
+      padding: 0 20px;
+    }
+    .packages h2 {
+      text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .packages .sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
+    .pkg-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .pkg {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      transition: border-color 0.2s;
+    }
+    .pkg:hover { border-color: var(--accent); }
+    .pkg.featured {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, #111128, #0e1230);
+    }
+    .pkg .badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--accent), var(--purple));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .pkg-name {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+    .pkg-price {
+      font-size: 38px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .pkg-price span { font-size: 16px; font-weight: 400; color: var(--muted); }
+    .pkg-setup {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .pkg-features {
+      list-style: none;
+      margin-bottom: 24px;
+    }
+    .pkg-features li {
+      font-size: 14px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      color: #ccd;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pkg-features li:last-child { border-bottom: none; }
+    .pkg-features li::before { content: "✓"; color: var(--green); font-weight: 700; }
+    .pkg-cta {
+      display: block;
+      text-align: center;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: #fff;
+      text-decoration: none;
+      padding: 13px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: opacity 0.2s;
+    }
+    .pkg-cta:hover { opacity: 0.88; }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      max-width: 760px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
+    }
+    .how h2 {
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 28px;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+    }
+    .step-num {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 16px;
+      color: #fff;
+    }
+    .step-text strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .step-text span { font-size: 14px; color: var(--muted); }
+
+    /* ── OBJECTIONS ── */
+    .objections {
+      max-width: 760px;
+      margin: 0 auto 48px;
+      padding: 0 24px;
+    }
+    .objections h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    .obj {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+    .obj .q {
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    .obj .a { font-size: 15px; color: var(--text); }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 48px 24px 64px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .final-cta h2 {
+      font-size: 30px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .final-cta p {
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 16px;
+    }
+    .cta-big {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: #fff;
+      text-decoration: none;
+      padding: 18px 48px;
+      border-radius: 50px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      box-shadow: 0 0 40px rgba(74,158,255,0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-big:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(74,158,255,0.4); }
+    .contact-line {
+      margin-top: 24px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .contact-line a { color: var(--accent); text-decoration: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+      color: #334;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+<!-- URGENCY BANNER -->
+<div class="banner">
+  🔥 Limited spots available for Ventura County businesses this month — <span>setup takes 48 hours</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="logo-line">Asgard-Ops AI</div>
+  <h1>Your Business Is Losing Leads Every Night.</h1>
+  <p>When customers search for you after hours, they need an answer <strong>right now</strong> — not a voicemail. Our AI handles it automatically, 24/7.</p>
+</section>
+
+<!-- PROOF STRIP -->
+<div class="proof">
+  <div class="proof-item">
+    <div class="num">24/7</div>
+    <div class="lbl">Always On</div>
+  </div>
+  <div class="proof-item">
+    <div class="num">48hrs</div>
+    <div class="lbl">Live on Your Site</div>
+  </div>
+  <div class="proof-item">
+    <div class="num">$197</div>
+    <div class="lbl">Starting / Month</div>
+  </div>
+  <div class="proof-item">
+    <div class="num">0</div>
+    <div class="lbl">Missed Leads</div>
+  </div>
+</div>
+
+<!-- LIVE DEMO -->
+<div class="demo-section">
+  <h2>🤖 Talk to a Live Demo Right Now</h2>
+  <p>This is an actual AI assistant — not a recording. Ask it anything a customer would ask your business.</p>
+  <a href="https://app.stammer.ai/en/chatbot/share/b6bbd6ef-51e2-4a0b-b94a-1cc98fa401c3"
+     target="_blank" class="demo-btn">Launch Live Demo →</a>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <h2>How It Works</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        <strong>You pick a package</strong>
+        <span>Starter, Pro, or Command — based on what your business needs</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        <strong>We build your AI in 48 hours</strong>
+        <span>Trained on your business — services, hours, FAQs, pricing, booking</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        <strong>We install it on your website</strong>
+        <span>One line of code. Works on any site. No tech knowledge needed.</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text">
+        <strong>It works while you don't</strong>
+        <span>Answers questions, captures leads, books appointments — automatically</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages">
+  <h2>Choose Your Package</h2>
+  <p class="sub">All packages include setup, installation, and ongoing support.</p>
+  <div class="pkg-grid">
+
+    <!-- STARTER -->
+    <div class="pkg">
+      <div class="pkg-name">Starter</div>
+      <div class="pkg-price">$197<span>/mo</span></div>
+      <div class="pkg-setup">+ $297 one-time setup</div>
+      <ul class="pkg-features">
+        <li>1 AI Chat Agent</li>
+        <li>500k character training</li>
+        <li>Website embed</li>
+        <li>FAQ automation</li>
+        <li>Lead capture</li>
+        <li>Appointment booking</li>
+      </ul>
+      <a href="https://app.asgard-ops.com/en/billing/stripe/subscription/checkout/session/?purchase_type=package&plan_key=basic&stripe_price_id=price_1TSQsLRLUIekBMieIr9ezJ17&billing_cycle=month"
+         class="pkg-cta">Get Started →</a>
+    </div>
+
+    <!-- PRO -->
+    <div class="pkg featured">
+      <div class="badge">Most Popular</div>
+      <div class="pkg-name">Pro</div>
+      <div class="pkg-price">$397<span>/mo</span></div>
+      <div class="pkg-setup">+ $397 one-time setup</div>
+      <ul class="pkg-features">
+        <li>Everything in Starter</li>
+        <li>AI Phone Receptionist</li>
+        <li>SMS follow-up automation</li>
+        <li>Priority support</li>
+        <li>Monthly performance report</li>
+      </ul>
+      <a href="https://app.asgard-ops.com/en/billing/stripe/subscription/checkout/session/?purchase_type=package&plan_key=pro&stripe_price_id=price_1TSQxCRLUIekBMieCFZnz4Eg&billing_cycle=month"
+         class="pkg-cta">Get Started →</a>
+    </div>
+
+    <!-- COMMAND -->
+    <div class="pkg">
+      <div class="pkg-name">Command</div>
+      <div class="pkg-price">$597<span>/mo</span></div>
+      <div class="pkg-setup">+ $597 one-time setup</div>
+      <ul class="pkg-features">
+        <li>Everything in Pro</li>
+        <li>Facebook & Instagram DM agent</li>
+        <li>CRM integration</li>
+        <li>Outbound reminders</li>
+        <li>Lead scoring</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <a href="https://app.asgard-ops.com/en/billing/stripe/subscription/checkout/session/?purchase_type=package&plan_key=premium&stripe_price_id=price_1TSRC9RLUIekBMieVaIU8OTE&billing_cycle=month"
+         class="pkg-cta">Get Started →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="objections">
+  <h2>Common Questions</h2>
+
+  <div class="obj">
+    <div class="q">❓ "My prices and services change — can the AI keep up?"</div>
+    <div class="a">Yes. We update your AI any time you need changes. Just message us and it's done within 24 hours. No extra charge.</div>
+  </div>
+
+  <div class="obj">
+    <div class="q">❓ "Will it work with my existing website?"</div>
+    <div class="a">Works on any website — WordPress, Wix, Squarespace, custom-built. One small piece of code. Takes 5 minutes to install.</div>
+  </div>
+
+  <div class="obj">
+    <div class="q">❓ "What if a customer asks something the AI doesn't know?"</div>
+    <div class="a">It captures their name and question and flags it for you. You follow up. The lead is never lost.</div>
+  </div>
+
+  <div class="obj">
+    <div class="q">❓ "Is $197 a month worth it?"</div>
+    <div class="a">One booked appointment from a lead you would've missed pays for the whole month. Most clients see ROI in week one.</div>
+  </div>
+
+  <div class="obj">
+    <div class="q">❓ "How long does setup take?"</div>
+    <div class="a">48 hours from when you sign up. We handle everything — training, building, installing. You don't touch anything technical.</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Ready to Stop Missing Leads?</h2>
+  <p>Start with Starter. Upgrade when you're ready. Cancel anytime.</p>
+  <a href="https://app.asgard-ops.com/en/billing/stripe/subscription/checkout/session/?purchase_type=package&plan_key=basic&stripe_price_id=price_1TSQsLRLUIekBMieIr9ezJ17&billing_cycle=month"
+     class="cta-big">Get Started — $197/mo →</a>
+  <div class="contact-line">
+    Questions? Call or text <a href="tel:8056698549">(805) 669-8549</a>
+    or email <a href="mailto:contact@asgard-ops.com">contact@asgard-ops.com</a>
+  </div>
+</section>
+
+<footer>
+  © 2026 Asgard-Ops AI · Ventura County, CA · <a href="https://ai.asgard-ops.com" style="color:#334">ai.asgard-ops.com</a>
+</footer>
+
+</body>
+</html>
