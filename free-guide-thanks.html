@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're In — Check Your Inbox | Asgard-Ops AI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --bg2: #111;
+      --bg3: #1a1a1a;
+      --border: #222;
+      --blue: #4f9fff;
+      --blue-dark: #3a7fd4;
+      --gold: #f0c040;
+      --green: #3ecf8e;
+      --text: #e8e8e8;
+      --muted: #888;
+      --max: 560px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ─── TOP BAR ─── */
+    .topbar {
+      background: var(--green);
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0d0d0d;
+      letter-spacing: 0.03em;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 60px 20px 48px;
+      text-align: center;
+    }
+    .hero-inner { max-width: var(--max); margin: 0 auto; }
+
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      background: rgba(62,207,142,0.12);
+      border: 2px solid var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 28px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 5vw, 38px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    h1 em { font-style: normal; color: var(--green); }
+
+    .subhead {
+      font-size: 17px;
+      color: #999;
+      max-width: 440px;
+      margin: 0 auto;
+      line-height: 1.55;
+    }
+
+    /* ─── DIVIDER ─── */
+    .divider {
+      max-width: var(--max);
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 48px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: clamp(20px, 3.5vw, 27px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    /* ─── CALL CTA ─── */
+    .call-section { background: linear-gradient(160deg, #0d1420 0%, #0d0d0d 100%); }
+    .call-box {
+      background: var(--bg3);
+      border: 1px solid rgba(79,159,255,0.25);
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+    .call-box .emoji { font-size: 36px; margin-bottom: 16px; }
+    .call-box h2 { margin-bottom: 12px; }
+    .call-box p {
+      color: #aaa;
+      font-size: 15px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .call-points {
+      list-style: none;
+      text-align: left;
+      margin: 0 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .call-points li {
+      font-size: 15px;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .call-points li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--blue);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s;
+      width: 100%;
+      text-align: center;
+    }
+    .btn-primary:hover { background: var(--blue-dark); }
+    .no-obligation {
+      font-size: 12px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    /* ─── SYSTEME PITCH ─── */
+    .systeme-section { background: var(--bg2); }
+    .systeme-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .systeme-box .tool-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(240,192,64,0.08);
+      border: 1px solid rgba(240,192,64,0.25);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .systeme-box h2 { margin-bottom: 12px; }
+    .systeme-box p {
+      color: #aaa;
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .feature-list li {
+      font-size: 14px;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .feature-list li .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      font-size: 16px;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+      width: 100%;
+      text-align: center;
+    }
+    .btn-secondary:hover { background: var(--gold); color: #0d0d0d; }
+    .affiliate-note {
+      font-size: 12px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    /* ─── STEPS ─── */
+    .steps-section { background: var(--bg); }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: rgba(79,159,255,0.12);
+      border: 1px solid rgba(79,159,255,0.3);
+      border-radius: 50%;
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body strong { display: block; color: #fff; font-size: 15px; margin-bottom: 2px; }
+    .step-body span { color: var(--muted); font-size: 14px; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+    }
+    footer a { color: #555; text-decoration: none; }
+    footer a:hover { color: var(--blue); }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    ✓ You're in! Your guide is on its way to your inbox.
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="check-circle">✓</div>
+      <h1>You're <em>In</em> — Check Your Inbox</h1>
+      <p class="subhead">Your free guide <em>"5 Ways AI is Helping Local Businesses Book More Jobs"</em> is heading to your inbox right now. Give it 2–5 minutes.</p>
+    </div>
+  </div>
+
+  <!-- WHAT'S NEXT STEPS -->
+  <section class="steps-section">
+    <div class="section-inner">
+      <p class="section-label">While You Wait</p>
+      <h2>Here's What Happens Next</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Check your inbox (and spam, just in case)</strong>
+            <span>Look for an email from Asgard-Ops AI — subject line starts with "Your Free Guide:"</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Read the guide with your business in mind</strong>
+            <span>Each section is short and practical. Mark the ones that sound most like your situation.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Book a free 20-minute call if you want this done for you</strong>
+            <span>No pitch deck, no pressure. Just a real conversation about your business and whether AI automation makes sense right now.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK A CALL -->
+  <section class="call-section">
+    <div class="section-inner">
+      <div class="call-box">
+        <div class="emoji">📞</div>
+        <p class="section-label">One More Thing — Free 20-Min Call</p>
+        <h2>Want This Set Up in Your Business?</h2>
+        <p>The guide shows you what's possible. The call shows you exactly what it would look like <em>in your business</em> — what we'd build, what it costs, and whether it makes sense right now. No obligation. No hard sell.</p>
+        <ul class="call-points">
+          <li>We'll look at your current lead capture gaps</li>
+          <li>You'll see a live demo of an AI phone receptionist</li>
+          <li>We'll give you a realistic timeline + cost for your setup</li>
+          <li>You walk away with a plan — whether you work with us or not</li>
+        </ul>
+        <a href="https://us05web.zoom.us/j/2452698496?pwd=01e0UW9XSA6HyScae8U1ITazt17KeS.1" class="btn-primary" target="_blank" rel="noopener">
+          Book My Free 20-Min Call →
+        </a>
+        <p class="no-obligation">Free. No obligation. Zoom call — 20 minutes max.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SYSTEME.IO PITCH -->
+  <section class="systeme-section">
+    <div class="section-inner">
+      <div class="systeme-box">
+        <div class="tool-badge">🛠 The Tool Behind This Funnel</div>
+        <h2>While You Wait — Meet the Platform We Use to Run All of This</h2>
+        <p>The opt-in page you just came from, the email you're about to get, this page — all of it runs on <strong>Systeme.io</strong>. It's the tool we recommend to every small business owner who wants to build a real online presence without spending $500/month on software.</p>
+        <p>Funnels, email automation, course hosting, affiliate management, payment processing — all in one platform. And the free plan is genuinely free. No credit card required to start.</p>
+        <ul class="feature-list">
+          <li><div class="dot"></div>Build opt-in funnels and landing pages</li>
+          <li><div class="dot"></div>Email automation (what you're getting right now)</li>
+          <li><div class="dot"></div>Sell products, courses, or services</li>
+          <li><div class="dot"></div>Free plan available — no credit card required</li>
+          <li><div class="dot"></div>Used by 300,000+ entrepreneurs worldwide</li>
+        </ul>
+        <a href="https://systeme.io/?sa=sa0272930514f09a4b973ef667fa000f7893465b1c" class="btn-secondary" target="_blank" rel="noopener">
+          Try Systeme.io Free →
+        </a>
+        <p class="affiliate-note">Heads up: this is an affiliate link. We only recommend tools we actually use.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Asgard-Ops AI Services · Ventura County, CA · <a href="mailto:contact@asgard-ops.com">contact@asgard-ops.com</a></p>
+    <p style="margin-top:6px;"><a href="#">Privacy Policy</a> · <a href="#">Unsubscribe</a></p>
+  </footer>
+
+</body>
+</html>
