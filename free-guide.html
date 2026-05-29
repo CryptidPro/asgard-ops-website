@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Guide — 5 Ways AI is Helping Local Businesses Book More Jobs</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --bg2: #111;
+      --bg3: #1a1a1a;
+      --border: #222;
+      --blue: #4f9fff;
+      --blue-dark: #3a7fd4;
+      --gold: #f0c040;
+      --text: #e8e8e8;
+      --muted: #888;
+      --max: 580px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ─── TOP BAR ─── */
+    .topbar {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .topbar span { color: var(--blue); font-weight: 600; }
+
+    /* ─── HERO ─── */
+    .hero {
+      background: linear-gradient(160deg, #0d0d0d 0%, #141a24 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 20px 56px;
+    }
+    .hero-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-block;
+      background: rgba(79,159,255,0.12);
+      border: 1px solid rgba(79,159,255,0.3);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .subhead {
+      font-size: clamp(16px, 2.5vw, 19px);
+      color: #b0b0b0;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.5;
+    }
+
+    /* ─── FORM CARD ─── */
+    .form-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .form-card p.form-label {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .form-row input[type="text"],
+    .form-row input[type="email"] {
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 16px;
+      padding: 14px 16px;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-row input:focus {
+      border-color: var(--blue);
+    }
+    .form-row input::placeholder { color: #555; }
+    .cta-btn {
+      background: var(--blue);
+      border: none;
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      padding: 16px 24px;
+      text-align: center;
+      transition: background 0.2s, transform 0.1s;
+      width: 100%;
+    }
+    .cta-btn:hover { background: var(--blue-dark); }
+    .cta-btn:active { transform: scale(0.98); }
+    .privacy-note {
+      font-size: 12px;
+      color: #555;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      padding: 60px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    /* ─── WHAT YOU'LL LEARN ─── */
+    .learn-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .learn-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      font-size: 15px;
+    }
+    .learn-list li .icon {
+      font-size: 20px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .learn-list li strong {
+      display: block;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .learn-list li span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ─── SOCIAL PROOF ─── */
+    .proof-section { background: var(--bg2); }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .proof-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .proof-stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .proof-text {
+      font-size: 15px;
+      color: #ccc;
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+    .proof-author {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .proof-author strong { color: var(--text); }
+
+    /* ─── ABOUT ─── */
+    .about-section { background: var(--bg); }
+    .about-box {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .about-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+    .about-box p {
+      color: #aaa;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .about-box p + p { margin-top: 10px; }
+    .about-accent { color: var(--blue); font-weight: 600; }
+
+    /* ─── BOTTOM CTA ─── */
+    .bottom-cta {
+      background: linear-gradient(160deg, #0d1420 0%, #0d0d0d 100%);
+      padding: 64px 20px;
+      text-align: center;
+    }
+    .bottom-cta h2 { margin-bottom: 14px; }
+    .bottom-cta .subhead { margin-bottom: 32px; }
+    .bottom-cta form { max-width: var(--max); margin: 0 auto; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+    }
+    footer a { color: #555; text-decoration: none; }
+    footer a:hover { color: var(--blue); }
+
+    @media (min-width: 600px) {
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { flex-direction: row; flex-wrap: wrap; }
+      .form-row input { flex: 1 1 180px; }
+      .form-row .cta-btn { flex: 0 0 auto; width: auto; padding: 14px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    Free Resource from <span>Asgard-Ops AI</span> — Local Business Automation
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Free Guide — Instant Download</div>
+      <h1>Your Phone Is Ringing Right Now.<br><em>Are You Missing It?</em></h1>
+      <p class="subhead">Get the free guide local business owners are using to capture more leads — without hiring more staff.</p>
+
+      <div class="form-card">
+        <p class="form-label">Where should we send it?</p>
+        <form action="https://formspree.io/f/mykvvnjl" method="POST">
+          <div class="form-row">
+            <input type="text" name="first_name" placeholder="First name" required />
+            <input type="email" name="email" placeholder="Your email address" required />
+            <button type="submit" class="cta-btn">Send Me the Free Guide →</button>
+          </div>
+        </form>
+        <p class="privacy-note">🔒 No spam. Unsubscribe any time. Your info stays private.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT YOU'LL LEARN -->
+  <section>
+    <div class="section-inner">
+      <p class="section-label">Inside the Guide</p>
+      <h2>5 Ways AI Is Helping Local Businesses Book More Jobs</h2>
+      <ul class="learn-list">
+        <li>
+          <div class="icon">📞</div>
+          <div>
+            <strong>The Missed Call Problem</strong>
+            <span>The real dollar cost of every unanswered call — and why it's worse than you think.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">🤖</div>
+          <div>
+            <strong>24/7 AI Phone Receptionist</strong>
+            <span>What your customers actually hear when an AI answers — and why they book anyway.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">📋</div>
+          <div>
+            <strong>Automatic Estimate Follow-Up</strong>
+            <span>The 24hr/72hr sequence that converts cold quotes into signed jobs on autopilot.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">⭐</div>
+          <div>
+            <strong>Review Requests on Autopilot</strong>
+            <span>Why consistent reviews compound your Google rank — and how to get them without asking.</span>
+          </div>
+        </li>
+        <li>
+          <div class="icon">📊</div>
+          <div>
+            <strong>The Owner Dashboard</strong>
+            <span>Know your leads, revenue, and follow-up status without digging through spreadsheets.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="proof-section">
+    <div class="section-inner">
+      <p class="section-label">What Business Owners Are Saying</p>
+      <h2>Real Results From Real Local Businesses</h2>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">"We were losing jobs to voicemail every single week. The AI receptionist picks up every call now. First month, we booked three jobs we would have missed."</p>
+          <p class="proof-author"><strong>Marcus T.</strong> — HVAC Owner, Ventura County</p>
+        </div>
+        <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">"The follow-up automation closed a $2,400 bathroom remodel that went cold for two weeks. It just… followed up while I was on another job."</p>
+          <p class="proof-author"><strong>Diana R.</strong> — Plumbing Contractor</p>
+        </div>
+        <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">"My Google reviews went from 18 to 47 in 60 days. Didn't ask a single customer myself. The system just sends the request at the right moment."</p>
+          <p class="proof-author"><strong>Jason M.</strong> — Auto Detailer, Oxnard</p>
+        </div>
+        <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">"I used to spend Sunday nights catching up on missed calls and texts. Now I don't. That alone was worth it."</p>
+          <p class="proof-author"><strong>Lena C.</strong> — Salon Owner, Camarillo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="section-inner">
+      <p class="section-label">About Asgard-Ops</p>
+      <div class="about-box">
+        <h3>We Set This Up So You Don't Have To</h3>
+        <p>Asgard-Ops is an AI services company based in Ventura County. We work with local service businesses — HVAC, dental, salons, contractors, and more — to build the kind of <span class="about-accent">automated lead capture and follow-up systems</span> that used to require a full-time receptionist and a CRM team.</p>
+        <p>Most of our clients are set up and running in under three weeks. You keep doing the work. The AI handles the phone, the follow-ups, and the reviews — 24/7, without a salary.</p>
+        <p>Grab the guide. It's free, it's practical, and it'll make you better at this regardless of what you do next.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA REPEAT -->
+  <div class="bottom-cta">
+    <div class="section-inner">
+      <h2>Ready to Stop Missing Calls?</h2>
+      <p class="subhead">Get the free guide and see exactly how local businesses are doing it right now.</p>
+      <form action="https://formspree.io/f/mykvvnjl" method="POST">
+        <div class="form-row">
+          <input type="text" name="first_name" placeholder="First name" required />
+          <input type="email" name="email" placeholder="Your email address" required />
+          <button type="submit" class="cta-btn">Send Me the Free Guide →</button>
+        </div>
+        <p class="privacy-note">🔒 No spam. Unsubscribe any time.</p>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Asgard-Ops AI Services · Ventura County, CA · <a href="mailto:contact@asgard-ops.com">contact@asgard-ops.com</a></p>
+    <p style="margin-top:6px;"><a href="#">Privacy Policy</a> · <a href="#">Unsubscribe</a></p>
+  </footer>
+
+</body>
+</html>
